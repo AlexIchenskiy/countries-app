@@ -1,10 +1,14 @@
 <!-- <p>{{ countries$ | async | json }}</p> -->
 <div class="container mx-auto p-6">
+  <mat-form-field class="example-full-width">
+    <mat-label for="search-countries">Search</mat-label>
+    <input matInput id="search-countries" type="text" [formControl]="search" />
+  </mat-form-field>
   <div
     class="grid gap-6 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4"
   >
     <app-country-card
-      *ngFor="let country of countries$ | async"
+      *ngFor="let country of filteredCountries$ | async"
       [data]="country"
     ></app-country-card>
   </div>
